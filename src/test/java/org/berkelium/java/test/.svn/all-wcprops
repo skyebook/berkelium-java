@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/71/trunk/src/test/java/org/berkelium/java/test
+END
+JavaScriptTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/70/trunk/src/test/java/org/berkelium/java/test/JavaScriptTest.java
+END
+AbstractBerkeliumTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/70/trunk/src/test/java/org/berkelium/java/test/AbstractBerkeliumTest.java
+END
+WindowDelegateTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/71/trunk/src/test/java/org/berkelium/java/test/WindowDelegateTest.java
+END

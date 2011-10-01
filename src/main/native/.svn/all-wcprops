@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/70/trunk/src/main/native
+END
+SingleThreadBerkelium.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/70/trunk/src/main/native/SingleThreadBerkelium.cpp
+END
+Context.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/57/trunk/src/main/native/Context.cpp
+END
+WindowImpl.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/70/trunk/src/main/native/WindowImpl.cpp
+END
+BufferImpl.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/57/trunk/src/main/native/BufferImpl.cpp
+END
+berkelium-java.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/66/trunk/src/main/native/berkelium-java.cpp
+END
+javawindowdelegateproxy.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/65/trunk/src/main/native/javawindowdelegateproxy.cpp
+END

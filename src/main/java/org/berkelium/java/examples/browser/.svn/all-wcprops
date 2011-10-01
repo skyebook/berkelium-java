@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/70/trunk/src/main/java/org/berkelium/java/examples/browser
+END
+Toolbar.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/65/trunk/src/main/java/org/berkelium/java/examples/browser/Toolbar.java
+END
+TabAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/70/trunk/src/main/java/org/berkelium/java/examples/browser/TabAdapter.java
+END
+BrowserApp.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/70/trunk/src/main/java/org/berkelium/java/examples/browser/BrowserApp.java
+END
+SimpleBrowser.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/70/trunk/src/main/java/org/berkelium/java/examples/browser/SimpleBrowser.java
+END
+Tab.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/70/trunk/src/main/java/org/berkelium/java/examples/browser/Tab.java
+END
