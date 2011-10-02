@@ -116,10 +116,26 @@
 				<!-- download archive -->
 				<if>
 					<not>
-						<available file="${download.dir}/${download.name}.7z" />
+						<if>
+							<isset property="sys.mac64"/>
+							<then>
+								<available file="${download.dir}/${download.name}.tgz" />
+								</then>
+							<else>
+								<available file="${download.dir}/${download.name}.7z" />
+							</else>
+						</if>
 					</not>
 					<then>
-						<get src="${download.base}${download.name}.7z" dest="${download.dir}/${download.name}.7z" skipexisting="true" />
+						<if>
+							<isset property="sys.mac64"/>
+							<then>
+								<get src="${download.base}${download.name}.7z" dest="${download.dir}/${download.name}.tgz" skipexisting="true" />
+							</then>
+							<else>
+								<get src="${download.base}${download.name}.7z" dest="${download.dir}/${download.name}.7z" skipexisting="true" />
+							</else>
+						</if>
 					</then>
 				</if>
 
