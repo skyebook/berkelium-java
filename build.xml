@@ -55,8 +55,8 @@
 		<if>
 			<os name="Mac OS X" />
 			<then>
-				<property name="sys.name" value="mac64" />
-				<property name="sys.mac64" value="true" />
+				<property name="sys.name" value="mac" />
+				<property name="sys.mac" value="true" />
 				<property name="sys.mac" value="true" />
 				<property name="sys.bits" value="64" />
 			</then>
@@ -114,7 +114,7 @@
 			</then>
 			<else>
 						<if>
-							<isset property="sys.mac64"/>
+							<isset property="sys.mac"/>
 							<then>
 								<available file="${download.dir}/${download.name}.tgz" property="download.present"/>
 								</then>
@@ -128,7 +128,7 @@
 						</not>
 						<then>
 							<if>
-								<isset property="sys.mac64"/>
+								<isset property="sys.mac"/>
 								<then>
 									<get src="${download.base}${download.name}.tgz" dest="${download.dir}/${download.name}.tgz" />
 								</then>
@@ -152,7 +152,7 @@
 						
 						
 						<if>
-							<isset property="sys.mac64"/>
+							<isset property="sys.mac"/>
 							<then>
 								<!-- Extract tgz archives -->
 								<property name="download.target" location="${download.dir}/${download.name}.tgz" />
@@ -212,7 +212,7 @@
 					<arg value="-I${source.include}" />
 					<arg value="-I${env.JAVA_HOME}include" />
 					<arg value="-I${env.JAVA_HOME}include/linux" />
-					<arg value="-I${build}/javah" />
+					<arg value="-I${basedir}/build/eclipse/bin/javah" />
 					<arg value="-c" />
 					<arg value="${basedir}/src/main/native/berkelium-java.cpp" />
 				</exec>
@@ -223,6 +223,32 @@
 					<arg value="-L${source.lib}" />
 					<arg value="-llibberkelium" />
 					<arg value="-olibberkelium-java.so" />
+					<arg value="berkelium-java.o" />
+				</exec>
+			</then>
+		</if>
+		<if>
+			<isset property="sys.mac" />
+			<then>
+				<echo>compile...</echo>
+				<exec executable="gcc" failonerror="true" dir="${build}/target">
+					<arg value="-fPIC" />
+					<arg value="-o" />
+					<arg value="berkelium-java.o" />
+					<arg value="-I${source.include}" />
+					<!-- Temporary hack because I don't feel like restarting my computer -->
+					<arg value="-I/System/Library/Frameworks/JavaVM.framework/Headers" />
+					<arg value="-I${basedir}/build/eclipse/bin/javah" />
+					<arg value="-c" />
+					<arg value="${basedir}/src/main/native/berkelium-java.cpp" />
+				</exec>
+				<echo>link...</echo>
+				<exec executable="gcc" failonerror="true" dir="${build}/target">
+					<arg value="-shared" />
+					<arg value="-lstdc++" />
+					<arg value="-L${source.lib}" />
+					<arg value="-llibberkelium" />
+					<arg value="-olibberkelium-java.jnilib" />
 					<arg value="berkelium-java.o" />
 				</exec>
 			</then>
