@@ -248,7 +248,8 @@
 					<arg value="-lstdc++" />
 					<arg value="-L${source.lib}" />
 					<arg value="-llibberkelium" />
-					<arg value="-olibberkelium-java.jnilib" />
+					<arg value="-o" />
+					<arg value="libberkelium-java.jnilib" />
 					<arg value="berkelium-java.o" />
 				</exec>
 			</then>
