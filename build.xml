@@ -113,31 +113,31 @@
 				<property name="source.bin" location="${berkelium.src}" />
 			</then>
 			<else>
-				<!-- download archive -->
-				<if>
-					<not>
 						<if>
 							<isset property="sys.mac64"/>
 							<then>
-								<available file="${download.dir}/${download.name}.tgz" />
+								<available file="${download.dir}/${download.name}.tgz" property="download.present"/>
 								</then>
 							<else>
-								<available file="${download.dir}/${download.name}.7z" />
+								<available file="${download.dir}/${download.name}.7z" property="download.present"/>
 							</else>
 						</if>
-					</not>
-					<then>
-						<if>
-							<isset property="sys.mac64"/>
-							<then>
-								<get src="${download.base}${download.name}.7z" dest="${download.dir}/${download.name}.tgz" skipexisting="true" />
-							</then>
-							<else>
-								<get src="${download.base}${download.name}.7z" dest="${download.dir}/${download.name}.7z" skipexisting="true" />
-							</else>
+					<if>
+						<not>
+							<isset property="download.present"/>
+						</not>
+						<then>
+							<if>
+								<isset property="sys.mac64"/>
+								<then>
+									<get src="${download.base}${download.name}.tgz" dest="${download.dir}/${download.name}.tgz" />
+								</then>
+								<else>
+									<get src="${download.base}${download.name}.7z" dest="${download.dir}/${download.name}.7z" skipexisting="true" />
+								</else>
 						</if>
-					</then>
-				</if>
+						</then>
+					</if>
 
 				<property name="unpacked" location="${build}/berkelium-${sys.name}" />
 
@@ -149,12 +149,30 @@
 						<delete dir="${unpacked}" />
 						<mkdir dir="${unpacked}" />
 						<!-- extract archive -->
-						<property name="download.target" location="${download.dir}/${download.name}.7z" />
-						<exec dir="${build}" executable="7z" failonerror="true">
-							<arg value="x" />
-							<arg value="${download.target}" />
-						</exec>
-						<echo file="${unpacked}/extracted.txt" />
+						
+						
+						<if>
+							<isset property="sys.mac64"/>
+							<then>
+								<!-- Extract tgz archives -->
+								<property name="download.target" location="${download.dir}/${download.name}.tgz" />
+								<exec dir="${build}" executable="tar" failonerror="true">
+									<arg value="zxvf" />
+									<arg value="${download.target}" />
+								</exec>
+								<echo file="${unpacked}/extracted.txt" />
+							</then>
+							<else>
+								<!-- Extract 7z archives -->
+								<property name="download.target" location="${download.dir}/${download.name}.7z" />
+								<exec dir="${build}" executable="7z" failonerror="true">
+									<arg value="x" />
+									<arg value="${download.target}" />
+								</exec>
+								<echo file="${unpacked}/extracted.txt" />
+							</else>
+						</if>
+						
 					</then>
 				</if>
 
