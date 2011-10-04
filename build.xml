@@ -235,6 +235,8 @@
 					<arg value="-fPIC" />
 					<arg value="-o" />
 					<arg value="berkelium-java.o" />
+					<arg value="-arch" />
+					<arg value="i386" />
 					<arg value="-I${source.include}" />
 					<!-- Temporary hack because I don't feel like restarting my computer -->
 					<arg value="-I/System/Library/Frameworks/JavaVM.framework/Headers" />
@@ -245,6 +247,8 @@
 				<echo>link...</echo>
 				<exec executable="gcc" failonerror="true" dir="${build}/target">
 					<arg value="-shared" />
+					<arg value="-arch" />
+					<arg value="i386" />
 					<arg value="-lstdc++" />
 					<arg value="-L${source.lib}" />
 					<arg value="-llibberkelium" />
